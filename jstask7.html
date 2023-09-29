@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIF Animation Control</title>
+  </head>
+  <body>
+    <h1>Click Buttons to Control GIF Animation</h1>
+
+    <img id="gifImage" src="train.gif" alt="Animated GIF" />
+    <br /><br />
+
+    <button id="startButton">Start</button>
+    <button id="stopButton">Stop</button>
+
+    <script>
+      // Get references to the image and buttons
+      var gifImage = document.getElementById("gifImage");
+      var staticimage = document.getElementById("gifImage");
+      var startButton = document.getElementById("startButton");
+      var stopButton = document.getElementById("stopButton");
+
+      // Variable to track the state of the GIF (true for playing, false for paused)
+      var isPlaying = false;
+
+      // Store the original source URL
+      var originalSrc = gifImage.src;
+
+      // Function to start the animation
+      function startAnimation() {
+        if (!isPlaying) {
+          // Change the src attribute to start the animation
+          gifImage.src = originalSrc;
+          isPlaying = true;
+        }
+      }
+
+      // Function to stop the animation
+      function stopAnimation() {
+        if (isPlaying) {
+          // Clear the src attribute to stop the animation
+          gifImage.src = "train2_800x600.png";
+          isPlaying = false;
+        }
+      }
+
+      // Add click event listeners to the start and stop buttons
+      startButton.addEventListener("click", startAnimation);
+      stopButton.addEventListener("click", stopAnimation);
+    </script>
+  </body>
+</html>

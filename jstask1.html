@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiplication Calculator</title>
+    <style>
+      /* Add some basic styling for the form */
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+      #result {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Reversing the num</h2>
+      <form id="REVform">
+        <label for="NUM">Enter the number:</label>
+        <input type="text" id="NUM" required /><br /><br />
+
+        <button type="button" onclick="Reversethenumber()">
+          Reverse the number
+        </button>
+      </form>
+
+      <div id="result"></div>
+    </div>
+
+    <script>
+      function Reversethenumber() {
+        var num = document.getElementById("NUM").value;
+        if (!isNaN(num)) {
+          var result = num.toString();
+          result = result.split("").reverse().join("");
+          document.getElementById("result").innerHTML =
+            "Reverse for number " + num + " is " + result;
+        } else {
+          document.getElementById("result").innerHTML =
+            "Please enter valid numbers.";
+        }
+      }
+    </script>
+  </body>
+</html>

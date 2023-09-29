@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date and Time Buttons</title>
+    <style>
+      #result1,
+      #result2 {
+        margin-left: 10px;
+      }
+      .s {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="s">
+      <button id="dateButton">Get Today's Date</button
+      ><span id="result1"></span>
+    </div>
+    <div>
+      <button id="timeButton">Get the Time</button><span id="result2"></span>
+    </div>
+
+    <script>
+      // Function to get today's date
+      function getTodaysDate() {
+        const currentDate = new Date();
+        const options = { year: "numeric", month: "long", day: "numeric" };
+        const formattedDate = currentDate.toLocaleDateString("en-US", options);
+        document.getElementById("result1").innerHTML =
+          "Today's Date: " + formattedDate;
+      }
+
+      // Function to get current time
+      function getCurrentTime() {
+        const currentTime = new Date();
+        const formattedTime = currentTime.toString();
+        document.getElementById("result2").innerHTML =
+          "Current Time: " + formattedTime;
+      }
+
+      // Add click event listeners to the buttons
+      document
+        .getElementById("dateButton")
+        .addEventListener("click", getTodaysDate);
+      document
+        .getElementById("timeButton")
+        .addEventListener("click", getCurrentTime);
+    </script>
+  </body>
+</html>
